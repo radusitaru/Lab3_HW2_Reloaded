@@ -1,34 +1,38 @@
 package composition;
 
-import PersonClass.Person;
+import person.Person;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.*;
 
 
 public class PersonReportGenerator {
 
 
-    public void generateReport(personProvider provider, String outputFile) throws IOException {
+    public void generateReport(PersonProvider provider, String outputFile) throws IOException {
         List<Person> people = provider.readPeople();
         generateReport(people, outputFile);
     }
 
     private void generateReport(List<Person> people, String outputFile) throws IOException {
 
+        Map<String, List<String>> groupNames = people.stream()
+                .collect((groupingBy(Person::getAgeGroup, mapping(Person::getFullName, toList()))));
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
-            people.stream()
-                    .map(person -> person.getAgeGroup() + " : " + person.getLastName() + " " + person.getFirstName())
-                    .forEach(line -> writeLine(writer, line));
+            writeLine(writer, groupNames);
         }
     }
 
-    private void writeLine(BufferedWriter writer, String line) {
+
+    private void writeLine(BufferedWriter writer, Map<String, List<String>> groupNames) {
         try {
-            writer.write(line);
+            writer.write(groupNames.toString());
             writer.newLine();
         } catch (IOException e) {
             throw new RuntimeException(e);

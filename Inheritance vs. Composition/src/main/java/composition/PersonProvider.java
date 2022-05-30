@@ -1,10 +1,10 @@
 package composition;
 
-import PersonClass.Person;
+import person.Person;
 
 import java.util.List;
 
-public interface personProvider {
+public interface PersonProvider {
 
     List<Person> readPeople();
 }

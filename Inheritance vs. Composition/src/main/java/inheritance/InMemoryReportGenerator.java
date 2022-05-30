@@ -1,6 +1,6 @@
 package inheritance;
 
-import PersonClass.Person;
+import person.Person;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class InMemoryReportGenerator extends PersonReportGenerator {
     public List<Person> readPeople() {
         return List.of(
                 new Person("Georgescu", "Calin", 30),
-                new Person("Enescu", "Ioana", 51),
+                new Person("Enescu", "Ioana", 31),
                 new Person("Popescu", "Ion", 31),
                 new Person("Tudorescu", "Paul", 45)
         );

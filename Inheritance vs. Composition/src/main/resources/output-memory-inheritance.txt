@@ -1,4 +1,1 @@
-1-30 : Calin Georgescu
-50+ : Ioana Enescu
-30-50 : Ion Popescu
-30-50 : Paul Tudorescu
+{Age group: 30-50=[Ioana E., Ion P., Paul T.], Age group: 1-30=[Calin G.]}

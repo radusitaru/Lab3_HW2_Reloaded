@@ -1,8 +1,5 @@
 package inheritance;
 
-import inheritance.FileReportGenerator;
-import inheritance.InMemoryReportGenerator;
-
 import java.io.IOException;
 import java.util.Scanner;
 

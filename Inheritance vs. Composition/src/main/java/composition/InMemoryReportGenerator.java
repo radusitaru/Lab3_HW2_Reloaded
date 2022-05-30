@@ -1,10 +1,10 @@
 package composition;
 
-import PersonClass.Person;
+import person.Person;
 
 import java.util.List;
 
-public class InMemoryReportGenerator implements personProvider {
+public class InMemoryReportGenerator implements PersonProvider {
 
     @Override
     public List<Person> readPeople() {

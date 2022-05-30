@@ -1,6 +1,6 @@
 package inheritance;
 
-import PersonClass.Person;
+import person.Person;
 
 import java.io.IOException;
 import java.nio.file.Files;
