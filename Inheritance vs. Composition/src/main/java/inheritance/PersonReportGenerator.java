@@ -11,9 +11,8 @@ import java.util.Map;
 import static java.util.stream.Collectors.*;
 
 public abstract class PersonReportGenerator {
-    public abstract List<Person> readPeople();
 
-    protected String source;
+    public abstract List<Person> readPeople();
 
     public void generateReport(String outputFile) throws IOException {
         List<Person> people = readPeople();
@@ -22,8 +21,8 @@ public abstract class PersonReportGenerator {
 
     private void generateReport(List<Person> people, String outputFile) throws IOException {
 
-            Map<String, List<String>> groupNames = people.stream()
-                    .collect((groupingBy(Person::getAgeGroup, mapping(Person::getFullName, toList()))));
+        Map<String, List<String>> groupNames = people.stream()
+                .collect((groupingBy(Person::getAgeGroup, mapping(Person::getFullName, toList()))));
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             writeLine(writer, groupNames);
