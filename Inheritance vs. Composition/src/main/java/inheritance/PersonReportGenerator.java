@@ -30,7 +30,6 @@ public abstract class PersonReportGenerator {
         }
     }
 
-
     private void writeLine(BufferedWriter writer, Map<String, List<String>> groupNames) {
         try {
             writer.write(groupNames.toString());
